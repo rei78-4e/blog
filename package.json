@@ -1,5 +1,5 @@
 {
-  "name": "senox",
+  "name": "rei78-4e-blog",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -10,17 +10,20 @@
     "prettier-plugin-astro": "^0.14.1"
   },
   "scripts": {
-    "dev": "bun run --filter @senox/blog dev",
-    "dev:blog": "bun run --filter @senox/blog dev",
-    "build": "bun run --filter @senox/blog build",
-    "build:blog": "bun run --filter @senox/blog build",
-    "typecheck": "bun run --filter @senox/blog typecheck",
-    "preview:blog": "bun run --filter @senox/blog preview",
-    "cf-dev:blog": "bun run --filter @senox/blog cf-dev",
-    "astro:blog": "bun run --filter @senox/blog astro",
-    "tags": "bun run --filter @senox/blog tags",
-    "slug": "bun run --filter @senox/blog slug",
-    "tags:check": "bun run --filter @senox/blog tags:check",
-    "prepare:git": "bun run --filter @senox/blog prepare:git"
+    "dev": "bun run --parallel --filter @rei78-4e/blog --filter @rei78-4e/me dev",
+    "dev:blog": "bun run --filter @rei78-4e/blog dev",
+    "dev:me": "bun run --filter @rei78-4e/me dev",
+    "build": "bun run build:blog && bun run build:me",
+    "build:blog": "bun run --filter @rei78-4e/blog build",
+    "build:me": "bun run --filter @rei78-4e/me build",
+    "preview": "bun run build && python3 -m http.server 8000 --directory dist",
+    "typecheck": "bun run --filter @rei78-4e/blog typecheck",
+    "preview:blog": "bun run --filter @rei78-4e/blog preview",
+    "cf-dev:blog": "bun run --filter @rei78-4e/blog cf-dev",
+    "astro:blog": "bun run --filter @rei78-4e/blog astro",
+    "tags": "bun run --filter @rei78-4e/blog tags",
+    "slug": "bun run --filter @rei78-4e/blog slug",
+    "tags:check": "bun run --filter @rei78-4e/blog tags:check",
+    "prepare:git": "bun run --filter @rei78-4e/blog prepare:git"
   }
 }

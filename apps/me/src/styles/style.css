@@ -1,0 +1,98 @@
+:root {
+  --a-link-in-post: #b85773;
+  --a-link-in-post-hovered: #d38ca0;
+  --a-under-in-post-hovered: #d38ca0;
+  --visited-link: #77766d;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, sans-serif;
+  /* width: 80%; */
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family:
+    "Helvetica Neue", "Liberation Sans", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Roboto", "Noto Sans JP", "Monaspace Radon", sans;
+
+  word-break: auto-phrase;
+}
+
+.my-info-head {
+  display: flex;
+}
+.my-logo {
+  width: 10rem;
+}
+
+a {
+  font-weight: 600;
+}
+
+a:link {
+  text-decoration: none;
+  color: #df879d;
+}
+
+a:visited {
+  color: #df879d;
+}
+
+.link--underline,
+.link--underline:visited {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition:
+    background-size 0.3s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.link--underline:hover {
+  background-size: 100% 1.5px;
+  color: var(--a-link-in-post-hovered);
+  background-image: linear-gradient(
+    var(--a-under-in-post-hovered),
+    var(--a-under-in-post-hovered)
+  );
+  opacity: 0.7;
+}
+
+.link--external::after {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0;
+
+  background-color: currentColor;
+
+  -webkit-mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"%3E%3Cline x1="7" y1="17" x2="17" y2="7"%3E%3C/line%3E%3Cpolyline points="7 7 17 7 17 17"%3E%3C/polyline%3E%3C/svg%3E');
+  mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"%3E%3Cline x1="7" y1="17" x2="17" y2="7"%3E%3C/line%3E%3Cpolyline points="7 7 17 7 17 17"%3E%3C/polyline%3E%3C/svg%3E');
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  transition: transform 0.2s ease;
+}
+
+.link--external:hover::after {
+  transform: translate(1px, -1px);
+}
+
+code {
+  font-family: "Monospace Radon";
+  background-color: "#444444";
+}

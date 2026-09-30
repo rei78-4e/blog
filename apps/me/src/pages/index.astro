@@ -1,0 +1,113 @@
+---
+import "../styles/style.css";
+
+const my = [
+  { label: "好きな物", content: "" }
+]
+
+const sns = [
+  { label: "Twitter", href: "https://x.com/rei78_4e", id: "rei78_4e" },
+  { label: "GitHub", href: "https://github.com/rei78-4e", id: "rei78-4e" },
+  { label: "Instagram", href: "https://x.com/rei78_4e", id: "rei78_4e" },
+  { label: "マシュマロ", href: "https://marshmallow-qa.com/db8xew1t5oa5l19", id: "れい"},
+  { label: "Matrix", href: "https://matrix.to/#/@rei78:matrix.org", id:"@rei78:matrix.org" },
+]
+
+const works = [
+  { label: "wlmsrt", href: "https://github.com/rei78-4e/wlmstr",
+  desc: "awww を利用した stateful な壁紙管理 CLI ツール。指定したディレクトリ内の画像を順に壁紙を切り替える。" },
+  { label: "cli_playground", href: "https://github.com/rei78-4e/cli_playground",
+  desc: "CLIにおける引数などの一般的な、解析結果のみを表示するコマンド。これは環境を壊さずにCLIを練習するためのもの。" },
+  { label: "discord_shi_bot", href: "https://github.com/rei78-4e/discord_shi_bot",
+  desc: "Cloudflare Workers を使って、テキスト装飾の返信を行うサーバーレス Discord ボット。" },
+  { label: "other repos", href: "https://github.com/rei78-4e?tab=repositories", desc: "" },
+]
+
+const articles = [
+  { label: "Blog", href: "https://rei78.cc/blog", id: "blog" },
+  { label: "Scrapbox", href: "https://scrapbox.io/rei78/", id: "rei78" },
+]
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Me</title>
+  </head>
+  <body>
+    <main>
+      <h1>れい(rei78)</h1>
+      <section class="my-info">
+        <h2>About me</h2>
+        <div class="my-info-head">
+          <img src="/me/logo.png" class="my-logo" />
+
+          <p>(<span class="age">19</span>)RustとかでCLIとかを書いてます。<a href="https://helix-editor.com/" target="_blank"rel="noopener noreferrer", class="link--underline">helix</a>ユーザー。最近はGleamとかの関数型言語, 言語処理系, web apiにも興味あったり?。好きな記号はパイプ(<code>|</code>)。</p>
+
+        </div>
+
+        <h3>好きな物</h3>
+        <p>文字, パスタ, かわいいもの, 雨, 傘, 硝子, 人形, data-driven, 口紅のついた吸い殻, コード</p>
+
+      </section>
+
+      <section class="contacts">
+        <h2>Contacts</h2>
+        <dl>
+          {
+            sns.map((item) => (
+              <dt>{item.label}</dt>
+              <dd><a href={item.href}
+              target="_blank"
+              rel="noopener noreferrer",
+              class="link--underline link--external"
+              >{item.id}</a></dd>
+            ))
+          }
+       </dl>
+      </section>
+
+      <section class="works">
+       <h2>Works</h2>
+          {
+            works.map((item) => (
+              <dt><a href={item.href} target="_blank" rel="noopener noreferrer"
+              class="link--underline link--external"
+              >{item.label}</a></dt>
+              <dd>{item.desc}</dd>
+            ))
+          }
+      
+      </section>
+
+      <section class="articles">
+       <h2>Articles</h2>
+        <dl>{
+            articles.map((item) => (
+              <dt>{item.label}</dt>
+              <dd><a href={item.href} target="_blank" rel="noopener noreferrer"
+              class="link--underline link--external"
+              >{item.id}</a></dd>
+            ))
+            }
+        </dl>
+      
+      </section>
+    </main>
+
+    <script>
+      const birth_day = Math.floor(
+        new Date("2007-03-20T20:30:00+09:00").getTime() / 1000,
+      );
+      const current = Math.floor(Date.now() / 1000);
+
+      //        60 * 60 * 24 * 365.2425👇 birth day UTC
+      const age = Math.floor((current - birth_day) / 31556952);
+      document.querySelectorAll(".age").forEach((element) => {
+        element.textContent = `${age}`;
+      });
+    </script>
+  </body>
+</html>

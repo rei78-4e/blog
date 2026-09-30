@@ -19,8 +19,10 @@
             nodejs
             python
             biome
+            superhtml
 
             astro-language-server
+            vscode-css-languageserver
 
             typescript
             typescript-language-server

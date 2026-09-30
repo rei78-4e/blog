@@ -5,14 +5,6 @@
 /* ── fonts ────────────────────────────────────────── */
 
 @font-face {
-  font-family: "Annotation Mono";
-  src: url("/blog/fonts/annotation_mono/AnnotationMono-VF.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Monaspace Radon";
   src: url("/blog/fonts/monospace/Monaspace_Radon/MonaspaceRadonNF-SemiWideRegular.woff2")
     format("woff2");
@@ -27,7 +19,7 @@
    https://gist.github.com/rei78-4e/93be316ea170ad4a9f66a487a117c517
    紙面は透けない: opaque, no gloss. */
 :root {
-  --background: #f8f7f2;
+  --background: #fcfcfa;
   --text: #2d302b;
   --heading-color: #2d302b;
   --a-link: #b85773;
@@ -67,8 +59,8 @@
     "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
     "Roboto", "Noto Sans JP", "Monaspace Radon", sans;
   --base-fonts-mono:
-    "Monaspace Radon", "Annotation Mono", "Fira Code", Consolas,
-    "Liberation Mono", Menlo, monospace;
+    "Monaspace Radon", "Fira Code", Consolas, "Liberation Mono", Menlo,
+    monospace;
   --header-title-color: #77766d;
 }
 
@@ -102,9 +94,6 @@
   --cons-color: #f87171;
   --floating-btn-shadow: rgba(0, 0, 0, 0.4);
 
-  --base-fonts-mono:
-    "Annotation Mono", "Fira Code", Consolas, "Liberation Mono", Menlo,
-    monospace;
   --header-title-color: #b8b8b8;
 }
 

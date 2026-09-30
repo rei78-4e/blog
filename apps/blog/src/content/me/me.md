@@ -29,7 +29,7 @@ published: true
     );
     const current = Math.floor(Date.now() / 1000);
 
-    //        60 * 60 * 24 * 365.2425👇
+    //        60 * 60 * 24 * 365.2425👇 birth day UTC
     const age = Math.floor((current - birth_day) / 31556952);
     document.querySelectorAll(".age").forEach((element) => {
       element.textContent = `${age}`;
@@ -75,46 +75,15 @@ webは苦手ですが最近ちょっとだけ手を出しています。Astro大
     class="link--underline link--external">
     9b9df4e9-4b43-4b0e-afbf</a>
 
-## Dev environment
-
-基本的にはデスクトップOSはLinux(NixOS)を使ってる。
-
-```text
-╭──────────────── System ────────────────╮
-│  󰍹 OS       NixOS 26.11 (Zokor) x86_64
-│   Kernel   Linux 7.2.0
-│   Font     MonaspaceRadonVar-Regular (12pt)
-│  󰇀 Cursor   Bibata-Modern-Ice (20pt)
-╰────────────────────────────────────────╯
-╭─────────────── Software ───────────────╮
-│  󱂬 WM       niri 26.04 (Wayland)
-│   Packages 4265 (nix-system), 3897 (nix-user)
-│  󰞷 Shell    fish 4.8.1
-│   Terminal kitty 0.48.2
-╰────────────────────────────────────────╯
-╭─────────────── Hardware ───────────────╮
-│  󰻠 CPU      Intel Core i5-12400 (12) @ 4.4 GHz
-│  󰢮 GPU      Intel UHD Graphics 730 @ 1.45 GHz [Integrated]
-│  󰍛 Memory   31.11 GiB
-│  󰋊 Disk     458.7GiB - ext4
-│   Base     B760M-STX
-│  󰍹 Display  3840x2160 @ 60Hz
-╰────────────────────────────────────────╯
-```
-
-https://x.com/rei78_4e/status/2084895400067313751
-
-[more info](https://github.com/rei78-4e/dotfiles)
-
 ## Links
 
 相互リンク募集中。私の即席バナーは以下。（200x40）
 <span style="
-font-family: 'Monaspace Radon', 'Annotation Mono', monospace;
+font-family: 'Monaspace Radon', monospace;
 letter-spacing: 0.01em;
 ">[senox78.am2@gmail.com](mailto:senox78.am2@gmail.com?subject=%E7%9B%B8%E4%BA%92%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)</span>
 へご連絡ください。
 
-[![uliboooo-banner#download#small](./banners/uliboooo_b.webp)](https://raw.githubusercontent.com/Uliboooo/blog/main/apps/blog/src/content/me/banners/uliboooo_b.webp)
+[![uliboooo-banner#download#small](./banners/uliboooo_b.webp)](https://raw.githubusercontent.com/rei78-4e/blog/main/apps/blog/src/content/me/banners/uliboooo_b.webp)
 [![keita_kawase_banner#no-deco](./banners/keita_kawase.png)](https://keitagame.github.io/)
 [![qian39_dev#no-deco](./banners/qial39.svg)](https://search3958.github.io?value=link1)

@@ -1,6 +1,6 @@
 ## れい Blog
 
-`https://rei78.cc/blog/` で公開する Astro application です。monorepo root からは `bun run dev` / `bun run build`、この directory からは従来どおり `bun run dev` / `bun run build` を実行できます。
+`https://rei78.cc/blog/` で公開する Astro application です。monorepo root からは `bun run dev:blog` / `bun run build:blog`、この directory からは従来どおり `bun run dev` / `bun run build` を実行できます。root の `bun run dev` は blog と me の開発サーバーを同時に起動し、`bun run build` は両方をビルドします。
 
 production build は monorepo root の `dist/blog/` に生成され、Cloudflare Pages 用の `_headers` と `_redirects` は `dist/` 直下へ配置されます。
 

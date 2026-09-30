@@ -159,7 +159,7 @@ const FOOTER = `<footer>
     </div>
     <div class="site-info">
       <p>
-        <a href="https://github.com/rei78-4e/senox" target="_blank" rel="noopener noreferrer" class="link--underline link--external">View Source</a>
+        <a href="https://github.com/rei78-4e/blog" target="_blank" rel="noopener noreferrer" class="link--underline link--external">View Source</a>
       </p>
     </div>
   </div>

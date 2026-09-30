@@ -3,14 +3,14 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "blog",
+      "name": "rei78-4e-blog",
       "devDependencies": {
         "prettier": "^3.9.9",
         "prettier-plugin-astro": "^0.14.1",
       },
     },
     "apps/blog": {
-      "name": "@senox/blog",
+      "name": "@rei78-4e/blog",
       "version": "0.0.30",
       "dependencies": {
         "@astrojs/markdown-remark": "^7.2.4",
@@ -30,12 +30,21 @@
         "typescript": "^7.0.2",
       },
     },
+    "apps/me": {
+      "name": "@rei78-4e/me",
+      "dependencies": {
+        "astro": "^7.2.6",
+      },
+      "devDependencies": {
+        "typescript": "^7.0.2",
+      },
+    },
     "apps/web": {
-      "name": "@senox/web",
+      "name": "@rei78-4e/web",
       "version": "0.0.0",
     },
     "packages/shared": {
-      "name": "@senox/shared",
+      "name": "@rei78-4e/shared",
       "version": "0.0.0",
     },
   },
@@ -222,6 +231,14 @@
 
     "@oxc-project/types": ["@oxc-project/types@0.139.0", "", {}, "sha512-r9gHphtCs+1M7J0pw6Sn/hh/Wpa/iQrOOkrNAlVLF/gHq+/CJmHIWKKUUhdWjcD6CIa8idarspCsASiXCXvFUw=="],
 
+    "@rei78-4e/blog": ["@rei78-4e/blog@workspace:apps/blog"],
+
+    "@rei78-4e/me": ["@rei78-4e/me@workspace:apps/me"],
+
+    "@rei78-4e/shared": ["@rei78-4e/shared@workspace:packages/shared"],
+
+    "@rei78-4e/web": ["@rei78-4e/web@workspace:apps/web"],
+
     "@rolldown/binding-android-arm64": ["@rolldown/binding-android-arm64@1.1.5", "", { "os": "android", "cpu": "arm64" }, "sha512-lZg8fqIv2v7FF237bwMgzGZEJvGL79/s5knJ/i6FmsGF4XXlzccZ4jb+TrFIxtSSxFtIpdsgrPZeMk1I9AFcyQ=="],
 
     "@rolldown/binding-darwin-arm64": ["@rolldown/binding-darwin-arm64@1.1.5", "", { "os": "darwin", "cpu": "arm64" }, "sha512-51Bnx9pNiMRKSUNtBfySkNJ9vMU9Hh3I1ozDd6gyPPYzaXCfnptUcEZxXGYFn+ul2dtcMUiqGR1Yai2K10uoTw=="],
@@ -253,12 +270,6 @@
     "@rolldown/binding-win32-x64-msvc": ["@rolldown/binding-win32-x64-msvc@1.1.5", "", { "os": "win32", "cpu": "x64" }, "sha512-tTZuDBPw85tEN5PQi1pnEBzDy0Z49HtScLAbD5t6hyeU92A95pRWaSMw1GZZi/RwgSgUIl0xrSlXIT/9QzvYSA=="],
 
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.1", "", {}, "sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw=="],
-
-    "@senox/blog": ["@senox/blog@workspace:apps/blog"],
-
-    "@senox/shared": ["@senox/shared@workspace:packages/shared"],
-
-    "@senox/web": ["@senox/web@workspace:apps/web"],
 
     "@shikijs/core": ["@shikijs/core@4.0.2", "", { "dependencies": { "@shikijs/primitive": "4.0.2", "@shikijs/types": "4.0.2", "@shikijs/vscode-textmate": "^10.0.2", "@types/hast": "^3.0.4", "hast-util-to-html": "^9.0.5" } }, "sha512-hxT0YF4ExEqB8G/qFdtJvpmHXBYJ2lWW7qTHDarVkIudPFE6iCIrqdgWxGn5s+ppkGXI0aEGlibI0PAyzP3zlw=="],
 
