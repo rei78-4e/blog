@@ -15,7 +15,7 @@ published: true
 
 私のhyprlandとniriの設定👇。基本的に下記のハッシュ時点の設定の話。
 
-[Hyprland: 77cdb74](https://github.com/senox78/dotfiles/tree/beef43bedab85c4ce457cd61fea7b44febc9a0ee/.config/hypr), [Niri: beef43b](https://github.com/senox78/dotfiles/tree/beef43bedab85c4ce457cd61fea7b44febc9a0ee/.config/niri)
+[Hyprland: 77cdb74](https://github.com/rei78-4e/dotfiles/tree/beef43bedab85c4ce457cd61fea7b44febc9a0ee/.config/hypr), [Niri: beef43b](https://github.com/rei78-4e/dotfiles/tree/beef43bedab85c4ce457cd61fea7b44febc9a0ee/.config/niri)
 
 ```bash
 :) hyprland --version
@@ -81,7 +81,7 @@ Niriはちゃんと1つの作業空間が1つのworkspaceに対応する感じ�
 
 あと、急にこの記事を書いている理由ですが以下のツイートが原因です。
 
-https://x.com/senox78/status/2024732378162483241?s=20
+https://x.com/rei78_4e/status/2024732378162483241?s=20
 
 雑に回答するならば
 

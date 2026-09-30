@@ -1,6 +1,6 @@
 ## れい Blog
 
-`https://senox.cc/blog/` で公開する Astro application です。monorepo root からは `bun run dev` / `bun run build`、この directory からは従来どおり `bun run dev` / `bun run build` を実行できます。
+`https://rei78.cc/blog/` で公開する Astro application です。monorepo root からは `bun run dev` / `bun run build`、この directory からは従来どおり `bun run dev` / `bun run build` を実行できます。
 
 production build は monorepo root の `dist/blog/` に生成され、Cloudflare Pages 用の `_headers` と `_redirects` は `dist/` 直下へ配置されます。
 
@@ -166,4 +166,4 @@ bun run prepare:git
 
 募集中です。以下に例。200x40px
 
-[![pre](./links_preview.png)](https://senox.cc/blog/me/#links)
+[![pre](./links_preview.png)](https://rei78.cc/blog/me/#links)

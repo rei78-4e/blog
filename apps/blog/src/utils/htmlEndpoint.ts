@@ -155,11 +155,11 @@ function renderHeader(frontmatter: Frontmatter) {
 const FOOTER = `<footer>
   <div class="footer-content">
     <div class="copy-right">
-      <p>&copy; 2026 れい(senox78). All rights reserved.</p>
+      <p>&copy; 2026 れい(rei78_4e). All rights reserved.</p>
     </div>
     <div class="site-info">
       <p>
-        <a href="https://github.com/senox78/senox" target="_blank" rel="noopener noreferrer" class="link--underline link--external">View Source</a>
+        <a href="https://github.com/rei78-4e/senox" target="_blank" rel="noopener noreferrer" class="link--underline link--external">View Source</a>
       </p>
     </div>
   </div>

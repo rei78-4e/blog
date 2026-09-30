@@ -12,7 +12,7 @@ published: true
 
 理由としては「面倒。忙しい。手っ取り早い解決手段がある」ので。
 
-https://x.com/senox78/status/2062778014069674394
+https://x.com/rei78_4e/status/2062778014069674394
 
 :::message
 

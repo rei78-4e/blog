@@ -4,7 +4,7 @@ import { html } from "satori-html";
 
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
-export const OG_AUTHOR = "れい(senox78)";
+export const OG_AUTHOR = "れい(rei78_4e)";
 export const OG_SITE_NAME = "Compute on Snails";
 
 const OG_THEME = {

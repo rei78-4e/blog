@@ -39,7 +39,7 @@ function readCommit() {
 const commit = readCommit();
 
 export default defineConfig({
-  site: "https://senox.cc",
+  site: "https://rei78.cc",
   base: "/blog",
   outDir: "../../dist/blog",
 

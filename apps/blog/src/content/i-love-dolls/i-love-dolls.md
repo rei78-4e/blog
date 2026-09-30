@@ -11,7 +11,7 @@ published: false
 
 ---
 
-<!-- https://x.com/senox78/status/2091965596896526599 -->
+<!-- https://x.com/rei78_4e/status/2091965596896526599 -->
 
 ## 思えば昔から
 

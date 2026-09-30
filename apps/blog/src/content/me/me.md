@@ -1,13 +1,13 @@
 ---
-title: "れい(senox78)"
+title: "れい(rei78_4e)"
 date: 2026-03-17
 latest_edit_at: 2026-09-10
-description: "senox78について"
+description: "rei78_4eについて"
 tags: ["me"]
 published: true
 ---
 
-色々あって名前をUliboooo -> れい(senox78)にしました。順次,各種SNS等を更新していくので半年ほど新旧入り乱れます。
+色々あって名前をUliboooo -> れい(rei78_4e)にしました。順次,各種SNS等を更新していくので半年ほど新旧入り乱れます。
 
 ---
 
@@ -51,18 +51,18 @@ published: true
 
 はGithubにあるrepo検索結果。
 
-[Rust](https://github.com/senox78?tab=repositories&q=&type=public&language=rust&sort=),
-[Shell](https://github.com/senox78?tab=repositories&q=&type=public&language=shell&sort=),
-[CLI Development](https://github.com/senox78?tab=repositories&q=cli&type=public&language=&sort=),
-[Lib Development](https://github.com/senox78?tab=repositories&q=lib&type=public&language=&sort=),
-[Web](https://github.com/senox78?tab=repositories&q=website&type=&language=&sort=)
+[Rust](https://github.com/rei78-4e?tab=repositories&q=&type=public&language=rust&sort=),
+[Shell](https://github.com/rei78-4e?tab=repositories&q=&type=public&language=shell&sort=),
+[CLI Development](https://github.com/rei78-4e?tab=repositories&q=cli&type=public&language=&sort=),
+[Lib Development](https://github.com/rei78-4e?tab=repositories&q=lib&type=public&language=&sort=),
+[Web](https://github.com/rei78-4e?tab=repositories&q=website&type=&language=&sort=)
 
 webは苦手ですが最近ちょっとだけ手を出しています。Astro大好き。あとは文書の記述や管理にも興味はある(図書館学? アーカイブス学?)
 
 ## SNS/Contact
 
-[GitHub](https://github.com/senox78),
-[Twitter](https://x.com/senox78),
+[GitHub](https://github.com/rei78-4e),
+[Twitter](https://x.com/rei78_4e),
 [Instagram](https://www.instagram.com/uliboooo)
 [マシュマロ](https://marshmallow-qa.com/db8xew1t5oa5l19),
 [Zenn](https://zenn.dev/uliboooo),
@@ -102,9 +102,9 @@ webは苦手ですが最近ちょっとだけ手を出しています。Astro大
 ╰────────────────────────────────────────╯
 ```
 
-https://x.com/senox78/status/2084895400067313751
+https://x.com/rei78_4e/status/2084895400067313751
 
-[more info](https://github.com/senox78/dotfiles)
+[more info](https://github.com/rei78-4e/dotfiles)
 
 ## Links
 
