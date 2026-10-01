@@ -8,7 +8,7 @@ Astro, Cloudflare Pages.
 
 ## ビルド機能・記法
 
-markdownパイプラインは`src/markdown-pipeline.js`に集約されていて、サイト本体のレンダリングと`/html/<slug>`エンドポイントで共有される。
+markdownパイプラインは`src/markdown-pipeline.js`に集約されていて、サイト本体のレンダリングとsearch index生成で共有される。
 
 ### Typst風記法(remark-typst)
 
@@ -89,7 +89,8 @@ altテキストに`#xxx`を含めるとサイズ・挙動を制御できる。
   - キャッシュは`src/data/x-embeds.json`。投稿を再取得するときは該当URLの項目を削除する
 - 外部リンクは自動で`target="_blank"` + 外部リンク装飾
 - 脚注の戻りリンク`↩`はSVGアイコンに置換(iOSの絵文字化対策)
-- 各記事はraw表示エンドポイントあり: `/md/<slug>`(markdown)、`/html/<slug>`(HTML)
+- 各記事はraw Markdown表示エンドポイントあり: `/md/<slug>`、`/md/<slug>.md`
+- 記事検索は`/search/`へ集約。top pageのformから検索できる
 - OG画像はsatoriでビルド時に自動生成(`/og/<slug>.png`)
 
 ### 記事の作成

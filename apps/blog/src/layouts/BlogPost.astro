@@ -39,16 +39,13 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
   ogImage={ogImage}
   ogType="article"
 >
-  <article class="prose" data-pagefind-body>
+  <article class="prose">
     <h1>{title}</h1>
     {trimmedDescription && <p class="post-description">{trimmedDescription}</p>}
-    <div class="post-meta" data-pagefind-ignore="index">
+    <div class="post-meta">
       {
         date && (
-          <time
-            datetime={date.toISOString()}
-            data-pagefind-meta={`date:${date.toLocaleDateString("ja-JP")}`}
-          >
+          <time datetime={date.toISOString()}>
             {date.toLocaleDateString("ja-JP")}
           </time>
         )
@@ -65,31 +62,23 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
         tags && tags.length > 0 && (
           <div class="tags">
             {tags.map((tag) => (
-              <span class="tag" data-pagefind-filter="tag">
-                {tag}
-              </span>
+              <span class="tag">{tag}</span>
             ))}
           </div>
         )
       }
-      <span class="raw-links" data-pagefind-ignore>
+      <span class="raw-links">
         <a
           href={blogPath(`/md/${slug}`)}
           class="link--underline link--external"
           target="_blank"
           rel="noopener noreferrer">md</a
         >
-        <a
-          href={blogPath(`/html/${slug}`)}
-          class="link--underline link--external"
-          target="_blank"
-          rel="noopener noreferrer">html</a
-        >
       </span>
     </div>
     {
       tocHeadings.length > 0 && (
-        <details class="toc" data-pagefind-ignore>
+        <details class="toc">
           <summary>目次</summary>
           <nav aria-label="Table of contents">
             <ul>
