@@ -4,12 +4,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout
   title="Search - Compute on Snails"
-  description="Search article text and URLs"
+  description="Search article titles, text and URLs"
 >
   <h2>Search</h2>
   <form id="grep-form" role="search">
     <label class="sr-only" for="grep-query">
-      Search article text and URLs with a regular expression
+      Search article titles, text and URLs with a regular expression
     </label>
     <div class="grep-input-row">
       <input
@@ -19,7 +19,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         autocomplete="off"
         spellcheck="false"
         autofocus
-        placeholder="Search article text and URLs with regex…"
+        placeholder="Search article titles, text and URLs with regex…"
       />
       <button type="submit">Search</button>
     </div>
@@ -116,6 +116,8 @@ import MainLayout from "../layouts/MainLayout.astro";
         const fullUrl = new URL(article.url, location.origin).href;
         expression.lastIndex = 0;
         const urlMatches = expression.test(`${article.url}\n${fullUrl}`);
+        expression.lastIndex = 0;
+        const titleMatches = expression.test(article.title);
         if (urlMatches) urlMatchCount += 1;
 
         const matched = article.lines.flatMap((line, index) => {
@@ -124,7 +126,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           if (matches) lineMatchCount += 1;
           return matches ? [index] : [];
         });
-        if (!urlMatches && !matched.length) continue;
+        if (!titleMatches && !urlMatches && !matched.length) continue;
         articleCount += 1;
 
         const section = document.createElement("section");
