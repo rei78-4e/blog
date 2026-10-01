@@ -5,10 +5,15 @@
   --visited-link: #77766d;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  width: 100%;
   font-family: system-ui, sans-serif;
   /* width: 80%; */
   max-width: 680px;
@@ -21,8 +26,19 @@ body {
   word-break: auto-phrase;
 }
 
+main {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 1rem;
+  }
+}
+
 .my-info-head {
   display: flex;
+  flex-wrap: wrap;
 }
 .my-logo {
   width: 10rem;
@@ -93,6 +109,9 @@ a:visited {
 }
 
 code {
-  font-family: "Monospace Radon";
-  background-color: "#444444";
+  padding: 0.1em 0.35em;
+  border-radius: 0.3em;
+  background-color: #f1f1f1;
+  font-family: "Monaspace Radon", monospace;
+  font-size: 0.9em;
 }
