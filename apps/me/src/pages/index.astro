@@ -16,7 +16,7 @@ const works = [
   desc: "CLIにおける引数などの一般的な、解析結果のみを表示するコマンド。これは環境を壊さずにCLIを練習するためのもの。" },
   { label: "discord_shi_bot", href: "https://github.com/rei78-4e/discord_shi_bot",
   desc: "Cloudflare Workers を使って、テキスト装飾の返信を行うサーバーレス Discord ボット。" },
-  { label: "other repos", href: "https://github.com/rei78-4e?tab=repositories", desc: "" },
+  { label: "other repos", href: "https://github.com/rei78-4e?tab=repositories", desc: "他のリポジトリ" },
 ]
 
 const articles = [
@@ -42,7 +42,7 @@ const articles = [
         <div class="my-info-head">
           <img src="/me/logo.png" class="my-logo" />
 
-          <p>(<span class="age">19</span>)RustとかでCLIとかを書いてます。<a href="https://helix-editor.com/" target="_blank"rel="noopener noreferrer", class="link--underline">helix</a>ユーザー。最近はGleamとかの関数型言語, 言語処理系, web apiにも興味あったり?。好きな記号はパイプ(<code>|</code>と<code>#</code>)。</p>
+          <p>(<span class="age">19</span>)RustとかでCLIとかを書いてます。<a href="https://helix-editor.com/" target="_blank"rel="noopener noreferrer", class="link--underline">helix</a>ユーザー。最近はGleamとかの関数型言語, 言語処理系, web apiにも興味あったり?。好きな記号は<code>|</code>と<code>#</code>。</p>
 
         </div>
 
@@ -59,7 +59,7 @@ const articles = [
               <dt>{item.label}</dt>
               <dd><a href={item.href}
               target="_blank"
-              rel="noopener noreferrer",
+              rel="noopener noreferrer"
               class="link--underline link--external"
               >{item.id}</a></dd>
             ))
@@ -69,15 +69,15 @@ const articles = [
 
       <section class="works">
        <h2>Works</h2>
+        <dl>
           {
             works.map((item) => (
               <dt><a href={item.href} target="_blank" rel="noopener noreferrer"
-              class="link--underline link--external"
-              >{item.label}</a></dt>
+              class="link--underline link--external">{item.label}</a></dt>
               <dd>{item.desc}</dd>
             ))
           }
-      
+        </dl>
       </section>
 
       <section class="articles">

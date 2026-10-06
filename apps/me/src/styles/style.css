@@ -115,3 +115,9 @@ code {
   font-family: "Monaspace Radon", monospace;
   font-size: 0.9em;
 }
+
+dd::before {
+  content: "=>";
+  font-family: "Monaspace Radon";
+  margin-right: 0.5rem;
+}
