@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { html } from "satori-html";
@@ -23,6 +24,13 @@ const fontPath = path.resolve(
 	"src/assets/fonts/noto_sans/NotoSansJP-Bold.ttf",
 );
 const fontData = readFileSync(fontPath);
+
+// テンプレート(このファイル)やフォントを変えたときも URL が変わるように、
+// 画像の見た目を決める入力をまとめてハッシュする
+const templateHash = createHash("sha256")
+	.update(readFileSync(path.resolve(process.cwd(), "src/utils/og.ts")))
+	.update(fontData)
+	.digest();
 
 const ogFonts = [
 	{
@@ -54,9 +62,28 @@ const cardStyle = `
   padding:56px 64px 40px;
 `;
 
+const normalizeOgText = (title: string, description?: string) => ({
+	safeTitle: title.trim() || OG_SITE_NAME,
+	safeDescription: description?.trim() ?? "",
+});
+
+/** OG 画像の URL に、画像の内容から計算したハッシュを `?h=` として付ける */
+export const withOgHash = (
+	imagePath: string,
+	title: string,
+	description?: string,
+) => {
+	const { safeTitle, safeDescription } = normalizeOgText(title, description);
+	const hash = createHash("sha256")
+		.update(templateHash)
+		.update(JSON.stringify([safeTitle, safeDescription]))
+		.digest("hex")
+		.slice(0, 12);
+	return `${imagePath}?h=${hash}`;
+};
+
 export const buildOgVNode = (title: string, description?: string) => {
-	const safeTitle = title.trim() || OG_SITE_NAME;
-	const safeDescription = description?.trim() ?? "";
+	const { safeTitle, safeDescription } = normalizeOgText(title, description);
 
 	return html`
     <div style="${wrapperStyle}">

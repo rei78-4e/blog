@@ -3,6 +3,7 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import externalJson from "../data/external.json";
+import { OG_SITE_NAME, withOgHash } from "../utils/og";
 import { blogPath } from "../utils/paths";
 
 const postsP = getCollection("blog");
@@ -70,7 +71,7 @@ const dateFormatter = new Intl.DateTimeFormat("ja-JP", {
 <MainLayout
   title="Compute on Snails"
   description="Compute on Snails"
-  ogImage={blogPath("/og/index.png")}
+  ogImage={withOgHash(blogPath("/og/index.png"), OG_SITE_NAME)}
 >
   <form
     class="article-search"

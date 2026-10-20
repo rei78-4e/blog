@@ -4,6 +4,7 @@ import satori from "satori";
 import {
   buildOgVNode,
   loadOgFonts,
+  OG_SITE_NAME,
   OG_IMAGE_HEIGHT,
   OG_IMAGE_WIDTH,
 } from "../../utils/og";
@@ -11,7 +12,7 @@ import {
 export const prerender = true;
 
 export const GET: APIRoute = async () => {
-  const vnode = buildOgVNode("Compute on Snails");
+  const vnode = buildOgVNode(OG_SITE_NAME);
   const svg = await satori(vnode, {
     width: OG_IMAGE_WIDTH,
     height: OG_IMAGE_HEIGHT,

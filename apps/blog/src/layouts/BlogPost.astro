@@ -3,6 +3,7 @@
 import type { MarkdownHeading } from "astro";
 import MainLayout from "./MainLayout.astro";
 import ShareButtons from "../components/ShareButtons.astro";
+import { withOgHash } from "../utils/og";
 import { blogPath } from "../utils/paths";
 import "../styles/post.css";
 
@@ -26,7 +27,9 @@ const {
   tags?: string[];
 };
 const trimmedDescription = description?.trim();
-const ogImage = slug ? blogPath(`/og/${slug}.png`) : undefined;
+const ogImage = slug
+  ? withOgHash(blogPath(`/og/${slug}.png`), title, description)
+  : undefined;
 const tocHeadings = headings.filter(
   (heading) => heading.depth >= 2 && heading.depth <= 3,
 );
