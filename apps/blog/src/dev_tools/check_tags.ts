@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -49,7 +49,7 @@ if (sort && !fix && !check) {
 }
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
-  console.log(`Usage: bun run tags [--fix] [--sort] [--check]
+  console.log(`Usage: npm run tags [--fix] [--sort] [--check]
 
 Checks tag spelling and normalization in src/content and src/data/external.json.
 

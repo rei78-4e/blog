@@ -1,6 +1,8 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
-import { exists } from "node:fs/promises";
+import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
+
 const root = process.cwd();
 const check = process.argv.includes("--check");
 const skipBuild = process.argv.includes("--skip-build");
@@ -12,7 +14,7 @@ if (process.argv.slice(2).some((option) => !validOptions.has(option))) {
 }
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
-  console.log(`Usage: bun run prepare:git [--check] [--skip-build]
+  console.log(`Usage: npm run prepare:git [--check] [--skip-build]
 
 Prepares the working tree before Git operations:
   1. normalize, deduplicate, and sort tags
@@ -26,24 +28,23 @@ Prepares the working tree before Git operations:
   process.exit(0);
 }
 
-const run = async (command: string[]) => {
-  const child = Bun.spawn(command, {
-    cwd: root,
-    stdout: "inherit",
-    stderr: "inherit",
+const run = async ([command, ...args]: string[]) => {
+  const child = spawn(command, args, { cwd: root, stdio: "inherit" });
+  const exitCode = await new Promise<number>((resolve, reject) => {
+    child.on("error", reject);
+    child.on("close", (code) => resolve(code ?? 1));
   });
-  const exitCode = await child.exited;
   if (exitCode !== 0) process.exit(exitCode);
 };
 
-if (!(await exists(`${root}/package.json`))) {
+if (!existsSync(`${root}/package.json`)) {
   console.error("Run this command from the repository root.");
   process.exit(2);
 }
 
 console.log(`\n==> Tag ${check ? "check" : "normalization and sorting"}`);
 await run([
-  "bun",
+  "node",
   "src/dev_tools/check_tags.ts",
   ...(check ? ["--check", "--sort"] : ["--fix", "--sort"]),
 ]);
@@ -58,7 +59,7 @@ await run([
 if (!check) {
   console.log("\n==> Formatting source and configuration files");
   await run([
-    "bunx",
+    "npx",
     "prettier",
     "--write",
     "src",
@@ -72,7 +73,7 @@ if (!check) {
 
 if (!skipBuild) {
   console.log("\n==> Production build");
-  await run(["bun", "run", "build"]);
+  await run(["npm", "run", "build"]);
 }
 
 console.log(

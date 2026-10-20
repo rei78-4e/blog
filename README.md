@@ -1,6 +1,6 @@
 # rei78.cc
 
-monorepo that manage `rei78.cc` by bun workspace. 
+monorepo that manage `rei78.cc` by npm workspaces.
 
 ```text
 apps/
@@ -14,14 +14,14 @@ packages/
 ## Commands
 
 ```sh
-bun install
-bun run dev       # starting up /blog and /me at each ports
-bun run dev:blog
-bun run dev:me
-bun run build     # production build for blog and me
-bun run preview   # preview on localhost:8000
-bun run preview:blog
-bun run tags:check
+npm install
+npm run dev       # starting up /blog and /me at each ports
+npm run dev:blog
+npm run dev:me
+npm run build     # production build for blog and me
+npm run preview   # preview on localhost:8000
+npm run preview:blog
+npm run tags:check
 ```
 production build generates each site at `dist/blog/` and `dist/me/`. 
 

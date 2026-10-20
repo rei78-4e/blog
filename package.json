@@ -6,28 +6,27 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@types/bun": "^1.4.2",
     "@types/node": "^26.6.4",
     "@types/prompts": "^2.4.9",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^0.14.1"
   },
   "scripts": {
-    "dev": "bun run --parallel --filter @rei78-4e/blog --filter @rei78-4e/me dev",
-    "dev:blog": "bun run --filter @rei78-4e/blog dev",
-    "dev:me": "bun run --filter @rei78-4e/me dev",
-    "build": "bun run build:blog && bun run build:me",
-    "build:blog": "bun run --filter @rei78-4e/blog build",
-    "build:me": "bun run --filter @rei78-4e/me build",
-    "preview": "bun run build && python3 -m http.server 8000 --directory dist",
-    "typecheck": "bun run --filter @rei78-4e/blog typecheck",
-    "preview:blog": "bun run --filter @rei78-4e/blog preview",
-    "cf-dev:blog": "bun run --filter @rei78-4e/blog cf-dev",
-    "astro:blog": "bun run --filter @rei78-4e/blog astro",
-    "tags": "bun run --filter @rei78-4e/blog tags",
-    "slug": "bun run --filter @rei78-4e/blog slug",
-    "tags:check": "bun run --filter @rei78-4e/blog tags:check",
-    "prepare:git": "bun run --filter @rei78-4e/blog prepare:git"
+    "dev": "npm run dev -w @rei78-4e/blog & npm run dev -w @rei78-4e/me & wait",
+    "dev:blog": "npm run dev -w @rei78-4e/blog",
+    "dev:me": "npm run dev -w @rei78-4e/me",
+    "build": "npm run build:blog && npm run build:me",
+    "build:blog": "npm run build -w @rei78-4e/blog",
+    "build:me": "npm run build -w @rei78-4e/me",
+    "preview": "npm run build && python3 -m http.server 8000 --directory dist",
+    "typecheck": "npm run typecheck -w @rei78-4e/blog",
+    "preview:blog": "npm run preview -w @rei78-4e/blog",
+    "cf-dev:blog": "npm run cf-dev -w @rei78-4e/blog",
+    "astro:blog": "npm run astro -w @rei78-4e/blog --",
+    "tags": "npm run tags -w @rei78-4e/blog --",
+    "slug": "npm run slug -w @rei78-4e/blog --",
+    "tags:check": "npm run tags:check -w @rei78-4e/blog",
+    "prepare:git": "npm run prepare:git -w @rei78-4e/blog --"
   },
   "dependencies": {
     "prompts": "^2.4.2"

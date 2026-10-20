@@ -1,15 +1,15 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
 import { existsSync } from "node:fs";
-import { mkdir } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import prompts from "prompts";
-import { generateSlugFromGemini, normalizeSlug } from "./generate_slug";
+import { generateSlugFromGemini, normalizeSlug } from "./generate_slug.ts";
 
 // Resolve paths from this script instead of the caller's working directory.
 // `./new` is also exposed at the monorepo root, so cwd may be either the
 // repository root or apps/blog.
-const project_root = path.resolve(import.meta.dir, "../..");
+const project_root = path.resolve(import.meta.dirname, "../..");
 const has_project_manifest = existsSync(path.join(project_root, "package.json"));
 
 if (!has_project_manifest) {
@@ -102,16 +102,14 @@ const frontmatter = [
 
 const article_path = path.join(project_root, "src/content", slug, `${slug}.md`);
 const display_path = path.relative(process.cwd(), article_path);
-const file = Bun.file(article_path);
-
-if (await file.exists()) {
+if (existsSync(article_path)) {
   console.error("already exists article, please rename.");
   process.exit(1);
 }
 
 try {
   await mkdir(path.dirname(article_path), { recursive: true });
-  await Bun.write(article_path, frontmatter);
+  await writeFile(article_path, frontmatter);
 } catch (e) {
   fail(`failed write: ${e instanceof Error ? e.message : String(e)}`);
 }

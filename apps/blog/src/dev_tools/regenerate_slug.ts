@@ -1,11 +1,11 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
 import { existsSync } from "node:fs";
-import { rename } from "node:fs/promises";
+import { readFile, rename } from "node:fs/promises";
 import path from "node:path";
-import { generateSlugFromGemini } from "./generate_slug";
+import { generateSlugFromGemini } from "./generate_slug.ts";
 
-const projectRoot = path.resolve(import.meta.dir, "../..");
+const projectRoot = path.resolve(import.meta.dirname, "../..");
 const contentRoot = path.join(projectRoot, "src/content");
 
 const fail = (message: string): never => {
@@ -14,7 +14,7 @@ const fail = (message: string): never => {
 };
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
-  console.log(`Usage: bun run slug <article.md>
+  console.log(`Usage: npm run slug <article.md>
 
 Regenerate an article slug from its title, description, and Markdown body, then
 rename the article file (and its containing directory when applicable).
@@ -23,7 +23,7 @@ GEMINI_API_KEY must be set.`);
   process.exit(0);
 }
 
-const input = process.argv[2] ?? fail("Usage: bun run slug <article.md>");
+const input = process.argv[2] ?? fail("Usage: npm run slug <article.md>");
 const articlePath = [
   path.resolve(process.cwd(), input),
   path.resolve(projectRoot, input),
@@ -39,7 +39,7 @@ if (!articlePath.endsWith(".md") || !existsSync(articlePath)) {
   fail(`Article not found: ${articlePath}`);
 }
 
-const source = await Bun.file(articlePath).text();
+const source = await readFile(articlePath, "utf8");
 const frontmatterMatch =
   source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/) ??
   fail(`Missing frontmatter: ${articlePath}`);

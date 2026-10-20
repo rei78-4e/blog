@@ -1,6 +1,6 @@
 ## れい Blog
 
-`https://rei78.cc/blog/` で公開する Astro application です。monorepo root からは `bun run dev:blog` / `bun run build:blog`、この directory からは従来どおり `bun run dev` / `bun run build` を実行できます。root の `bun run dev` は blog と me の開発サーバーを同時に起動し、`bun run build` は両方をビルドします。
+`https://rei78.cc/blog/` で公開する Astro application です。monorepo root からは `npm run dev:blog` / `npm run build:blog`、この directory からは従来どおり `npm run dev` / `npm run build` を実行できます。root の `npm run dev` は blog と me の開発サーバーを同時に起動し、`npm run build` は両方をビルドします。
 
 production build は monorepo root の `dist/blog/` に生成され、Cloudflare Pages 用の `_headers` と `_redirects` は `dist/` 直下へ配置されます。
 
@@ -96,31 +96,31 @@ altテキストに`#xxx`を含めるとサイズ・挙動を制御できる。
 ### 記事の作成
 
 ```sh
-./new  # bun製の対話スクリプト。タイトル等を入力するとsrc/content/にひな形を生成
+./new  # Node.js製の対話スクリプト。タイトル等を入力するとsrc/content/にひな形を生成
 ```
 
 frontmatterスキーマ(`src/content.config.ts`): `title`, `date`, `published`(必須) / `latest_edit_at`, `description`, `tags`(任意)。
 
 ### タグのチェック・正規化
 
-`bun run tags`で`src/content`内の記事と`src/data/external.json`のタグを検査できる。Unicode正規化・前後空白除去・小文字化、および`src/dev_tools/tag-rules.json`に定義した別名を適用対象として報告する。
+`npm run tags`で`src/content`内の記事と`src/data/external.json`のタグを検査できる。Unicode正規化・前後空白除去・小文字化、および`src/dev_tools/tag-rules.json`に定義した別名を適用対象として報告する。
 
 #### 基本操作
 
 ```sh
-bun run tags
+npm run tags
 ```
 
 報告だけを行い、ファイルは変更しない。たとえば`Linux`は`linux`、`colomn`は設定済みの`column`として表示される。
 
 ```sh
-bun run tags -- --fix
+npm run tags -- --fix
 ```
 
-報告された安全な変更を適用する。タグは小文字・NFKC正規化され、別名へ置換され、同一記事内で重複したタグは1つにまとめられる。実行前に`bun run tags`で差分を確認すること。
+報告された安全な変更を適用する。タグは小文字・NFKC正規化され、別名へ置換され、同一記事内で重複したタグは1つにまとめられる。実行前に`npm run tags`で差分を確認すること。
 
 ```sh
-bun run tags:check
+npm run tags:check
 ```
 
 CIなどの確認用。正規化が必要なタグまたは未抑制の類似タグがある場合、終了コード`1`で終了する。
@@ -128,7 +128,7 @@ CIなどの確認用。正規化が必要なタグまたは未抑制の類似タ
 #### 別名ルールの生成
 
 ```sh
-bun run tags -- --generate-rules
+npm run tags -- --generate-rules
 ```
 
 既存タグから別名ルールの候補を表示する。4文字以上かつ編集距離1以内の表記ゆれだけを対象にし、出現回数が多い方へ寄せる保守的な推定を行う。表示のみで、設定ファイルは変更しない。
@@ -136,7 +136,7 @@ bun run tags -- --generate-rules
 候補を確認してから反映する場合は、次を実行する。
 
 ```sh
-bun run tags -- --generate-rules --write-rules
+npm run tags -- --generate-rules --write-rules
 ```
 
 #### ルールの編集
@@ -158,10 +158,10 @@ bun run tags -- --generate-rules --write-rules
 ### push前のまとめ準備
 
 ```sh
-bun run prepare:git
+npm run prepare:git
 ```
 
-タグの正規化・重複除去・辞書順ソート、`src/content`配下の画像圧縮、ソース／設定ファイルのPrettier整形、production buildを順に実行する。Gitコマンド（add・commit・pushを含む）は一切実行しないため、このコマンドの後に内容を確認してからGit操作へ進める。画像は元より小さくなる場合だけ上書きし、バックアップファイルは作成しない。まず変更内容だけ確認する場合は`bun run prepare:git -- --check`、buildを省く場合は`--skip-build`を付ける。旧名の`bun run prepare:push`も互換用エイリアスとして利用できる。
+タグの正規化・重複除去・辞書順ソート、`src/content`配下の画像圧縮、ソース／設定ファイルのPrettier整形、production buildを順に実行する。Gitコマンド（add・commit・pushを含む）は一切実行しないため、このコマンドの後に内容を確認してからGit操作へ進める。画像は元より小さくなる場合だけ上書きし、バックアップファイルは作成しない。まず変更内容だけ確認する場合は`npm run prepare:git -- --check`、buildを省く場合は`--skip-build`を付ける。旧名の`npm run prepare:push`も互換用エイリアスとして利用できる。
 
 ## 相互リンク
 
