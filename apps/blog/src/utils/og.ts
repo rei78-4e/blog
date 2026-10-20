@@ -7,21 +7,15 @@ export const OG_IMAGE_HEIGHT = 630;
 export const OG_AUTHOR = "れい(rei78_4e)";
 export const OG_SITE_NAME = "Compute on Snails";
 
+// Uncoated Paper Design: 不透明な紙面・罫線・ink の文字だけで構成する
 const OG_THEME = {
-	background: {
-		start: "#E4E8F8",
-		middle: "#EEF1FD",
-		end: "#F7EBF4",
-	},
-	card: {
-		background: "#ffffff",
-		border: "#E9DCEF",
-	},
-	text: {
-		title: "#111111",
-		description: "#555555",
-		footer: "#666666",
-	},
+	paper: "#f1eee5",
+	paperLight: "#fbf9f2",
+	ink: "#2d302b",
+	inkMuted: "#77766d",
+	rule: "#b7b0a2",
+	ruleSoft: "#d0c9bb",
+	rose: "#d38ca0",
 } as const;
 
 const fontPath = path.resolve(
@@ -45,20 +39,19 @@ const wrapperStyle = `
   width:${OG_IMAGE_WIDTH}px;
   height:${OG_IMAGE_HEIGHT}px;
   display:flex;
-  background:linear-gradient(135deg, ${OG_THEME.background.start}, ${OG_THEME.background.middle}, ${OG_THEME.background.end});
+  background:${OG_THEME.paper};
   font-family:'Noto Sans JP',sans-serif;
 `;
 
 const cardStyle = `
   margin:56px;
   flex:1;
-  background:${OG_THEME.card.background};
-  border-radius:36px;
-  border:2px solid ${OG_THEME.card.border};
+  background:${OG_THEME.paperLight};
+  border:2px solid ${OG_THEME.rule};
   display:flex;
   flex-direction:column;
   box-sizing:border-box;
-  padding:64px;
+  padding:56px 64px 40px;
 `;
 
 export const buildOgVNode = (title: string, description?: string) => {
@@ -69,23 +62,23 @@ export const buildOgVNode = (title: string, description?: string) => {
     <div style="${wrapperStyle}">
       <div style="${cardStyle}">
         <div
-          style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;"
+          style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;border-left:6px solid ${OG_THEME.rose};padding-left:36px;"
         >
           <div
-            style="font-size:64px;font-weight:700;line-height:1.25;color:${OG_THEME.text.title};word-break:break-word;white-space:pre-wrap;"
+            style="font-size:64px;font-weight:700;line-height:1.25;color:${OG_THEME.ink};word-break:break-word;white-space:pre-wrap;"
           >
             ${safeTitle}
           </div>
 
           <div
-            style="display:${safeDescription ? "flex" : "none"};font-size:28px;font-weight:700;line-height:1.5;color:${OG_THEME.text.description};word-break:break-word;white-space:pre-wrap;"
+            style="display:${safeDescription ? "flex" : "none"};font-size:28px;font-weight:700;line-height:1.5;color:${OG_THEME.inkMuted};word-break:break-word;white-space:pre-wrap;"
           >
             ${safeDescription}
           </div>
         </div>
 
         <div
-          style="display:flex;justify-content:space-between;align-items:flex-end;font-size:32px;font-weight:700;color:${OG_THEME.text.footer};"
+          style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:40px;padding-top:24px;border-top:1px solid ${OG_THEME.ruleSoft};font-size:28px;font-weight:700;color:${OG_THEME.inkMuted};"
         >
           <div>${OG_SITE_NAME}</div>
           <div>${OG_AUTHOR}</div>
