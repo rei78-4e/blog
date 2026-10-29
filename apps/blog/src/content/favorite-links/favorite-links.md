@@ -12,3 +12,5 @@ published: true
   - https://sizu.me/cordx56/posts/0s9939tzfkoc
 
 - https://x.com/yoruni_inoru/status/2112422760136036637
+
+- https://x.com/genki_o__kura/status/2115614830216491297
