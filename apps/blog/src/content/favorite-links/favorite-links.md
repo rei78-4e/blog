@@ -12,4 +12,4 @@ published: true
 - https://x.com/yoruni_inoru/status/2112422760136036637
 - https://x.com/suisainoseisou/status/2115080531448906033
 - https://x.com/genki_o__kura/status/2115614830216491297
-
+- https://x.com/laudate_7d71/status/2113892170931552304
