@@ -25,6 +25,7 @@ type BlogItem = {
   data: {
     title: string;
     date: Date;
+    latest_edit_at?: Date;
     description?: string;
     tags?: string[];
     published?: boolean;
@@ -50,6 +51,7 @@ const astroPosts: BlogItem[] = posts.map((post) => ({
   data: {
     title: post.data.title,
     date: post.data.date,
+    latest_edit_at: post.data.latest_edit_at,
     description: post.data.description?.trim() || undefined,
     tags: post.data.tags,
     published: post.data.published,
@@ -59,7 +61,11 @@ const astroPosts: BlogItem[] = posts.map((post) => ({
 
 const sorted = [...astroPosts, ...externalPosts]
   .filter((post) => post.data.published !== false)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  .sort(
+    (a, b) =>
+      (b.data.latest_edit_at ?? b.data.date).valueOf() -
+      (a.data.latest_edit_at ?? a.data.date).valueOf(),
+  );
 
 const dateFormatter = new Intl.DateTimeFormat("ja-JP", {
   year: "numeric",
