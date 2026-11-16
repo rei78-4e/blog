@@ -47,18 +47,23 @@ const url = new URL(Astro.url.pathname, Astro.site).href;
     {trimmedDescription && <p class="post-description">{trimmedDescription}</p>}
     <div class="post-meta">
       {
-        date && (
-          <time datetime={date.toISOString()}>
-            {date.toLocaleDateString("ja-JP")}
-          </time>
-        )
-      }
-      {
-        latest_edit_at && (
-          <time datetime={latest_edit_at.toISOString()} class="last-modified">
-            <span class="time-arrow">⇒</span>
-            <span>{latest_edit_at.toLocaleDateString("ja-JP")}</span>
-          </time>
+        (date || latest_edit_at) && (
+          <span class="post-dates">
+            {date && (
+              <time datetime={date.toISOString()}>
+                {date.toLocaleDateString("ja-JP")}
+              </time>
+            )}
+            {latest_edit_at && (
+              <time
+                datetime={latest_edit_at.toISOString()}
+                class="last-modified"
+              >
+                <span class="time-arrow">&hellip;</span>
+                <span>{latest_edit_at.toLocaleDateString("ja-JP")}</span>
+              </time>
+            )}
+          </span>
         )
       }
       {
