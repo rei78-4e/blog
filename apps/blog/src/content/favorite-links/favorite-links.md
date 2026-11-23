@@ -16,4 +16,6 @@ published: true
 - https://x.com/laudate_7d71/status/2113892170931552304
 - https://x.com/Sapphire_Lilith/status/2121997046458744884
 - [【歌ってみた】君の神様になりたい。 RAP VERSION covered by 春猿火](https://youtu.be/tdhSaEbfIko?si=tFnyEvoKQhMvKkJn)
-
+- https://x.com/Sapphire_Lilith/status/2123147691060556089
+- https://x.com/TKTKMTMTkkkk/status/2123841814616834504
+- https://x.com/rei78_4e/status/2124156508623745115
