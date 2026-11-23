@@ -1,7 +1,7 @@
 ---
 title: "ふぁぼlinks"
 date: 2026-10-20
-latest_edit_at: 2026-11-15
+latest_edit_at: 2026-11-23
 description: "お気に入りの記事とか言葉とか"
 tags: []
 published: true
