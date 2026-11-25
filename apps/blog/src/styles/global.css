@@ -5,8 +5,8 @@
 /* ── fonts ────────────────────────────────────────── */
 
 @font-face {
-  font-family: "Monaspace Radon";
-  src: url("/blog/fonts/monospace/Monaspace_Radon/MonaspaceRadonNF-SemiWideRegular.woff2")
+  font-family: "Victor Mono";
+  src: url("../assets/fonts/VictorMonoAll/WOFF2/VictorMono-SemiBold.woff2")
     format("woff2");
   font-display: swap;
   /* font-weight: 100 900; */
@@ -57,10 +57,9 @@
 
   --base-fonts-sans:
     "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-    "Roboto", "Noto Sans JP", "Monaspace Radon", sans;
-  --base-fonts-mono:
-    "Monaspace Radon", "Fira Code", Consolas, "Liberation Mono", Menlo,
-    monospace;
+    "Roboto", "Noto Sans JP", "Victor Mono", sans;
+  --bgse-fonts-mono:
+    "Victor Mono", "Fira Code", Consolas, "Liberation Mono", Menlo, monospace;
   --header-title-color: #77766d;
 }
 

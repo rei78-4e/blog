@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Victor Mono";
+  src: url("../assets/fonts/victor-mono/VictorMono-SemiBold.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
 :root {
   --a-link-in-post: #b85773;
   --a-link-in-post-hovered: #d38ca0;
@@ -21,7 +28,7 @@ body {
   margin-right: auto;
   font-family:
     "Helvetica Neue", "Liberation Sans", Arial, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", "Roboto", "Noto Sans JP", "Monaspace Radon", sans;
+    "Hiragino Sans", "Roboto", "Noto Sans JP", "Victor Mono", sans;
 
   word-break: auto-phrase;
 }
@@ -112,12 +119,12 @@ code {
   padding: 0.1em 0.35em;
   border-radius: 0.3em;
   background-color: #f1f1f1;
-  font-family: "Monaspace Radon", monospace;
+  font-family: "Victor Mono", monospace;
   font-size: 0.9em;
 }
 
 dd::before {
   content: "=>";
-  font-family: "Monaspace Radon";
+  font-family: "Victor Mono";
   margin-right: 0.5rem;
 }
