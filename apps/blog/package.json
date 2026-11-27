@@ -14,6 +14,7 @@
     "cf-dev": "cd ../.. && wrangler pages dev dist",
     "astro": "astro",
     "open-article": "node src/dev_tools/open_article.ts",
+    "name": "node src/dev_tools/name_article.ts",
     "slug": "node src/dev_tools/regenerate_slug.ts",
     "tags": "node src/dev_tools/check_tags.ts",
     "tags:check": "node src/dev_tools/check_tags.ts --check",

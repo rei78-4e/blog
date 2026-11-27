@@ -1,11 +1,13 @@
 ---
 title: "ふぁぼlinks"
 date: 2026-10-20
-latest_edit_at: 2026-11-25
+latest_edit_at: 2026-11-27
 description: "お気に入りの記事とか言葉とか"
 tags: []
 published: true
 ---
+
+もし載せて欲しくない等ございましたら御手数ですが[XのDM](https://x.com/rei78_4e)や[rei784e@gmail.com](rei784e@gmail.com)までご連絡ください.
 
 - https://x.com/Sapphire_Lilith/status/2112305975197884416
 - https://x.com/cordx56/status/2065285967653851475
@@ -20,3 +22,4 @@ published: true
 - https://x.com/TKTKMTMTkkkk/status/2123841814616834504
 - https://x.com/rei78_4e/status/2124156508623745115
 - [To be, or not to be — 1998/4/16](https://www.l.u-tokyo.ac.jp/~takegawa/columns/col19980416.html)
+- https://x.com/Sapphire_Lilith/status/2126069907372831068

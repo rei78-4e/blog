@@ -36,7 +36,10 @@ export const generateSlugFromGemini = async ({
   const prompt = [
     "Generate a concise URL slug in lowercase ASCII for the blog article below.",
     "Use only letters a-z, numbers 0-9, and hyphens. Return ONLY the slug.",
-    "If the article isn’t in English, translate its main idea naturally and generate a slug.",
+    "Name the concrete subject (tool, technology, person, or specific claim), not just the genre of the post.",
+    "If the title is not in English, translate it into English.",
+    "When no description or body is given, translate the title as literally as possible instead of guessing an abstract theme.",
+    'Example: "画面分割について思うこと(エディタ)" -> "thoughts-on-split-view-editor", never "thoughts".',
     ...context,
   ].join("\n\n");
 
@@ -45,7 +48,7 @@ export const generateSlugFromGemini = async ({
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.2, maxOutputTokens: 24 },
+      generationConfig: { temperature: 0.2, maxOutputTokens: 64 },
     }),
   });
 

@@ -96,7 +96,20 @@ altテキストに`#xxx`を含めるとサイズ・挙動を制御できる。
 ### 記事の作成
 
 ```sh
-./new  # Node.js製の対話スクリプト。タイトル等を入力するとsrc/content/にひな形を生成
+./new  # src/content/<timestamp>.md を title 空・published: false で生成
+```
+
+本文を書いたあと、`./name`でメタデータを対話入力し、スラッグを生成してリネームする。
+
+```sh
+./name  # 最新のタイムスタンプ記事を対象にする
+./name src/content/2026-11-25_143012.md  # パスを指定する場合
+```
+
+`./name`はタイトル・説明・タグ・公開状態を尋ね、タイトル・説明・本文からGeminiでスラッグを生成し、ファイル（ディレクトリ記事ならディレクトリごと）をリネームする。プロンプトはstderrに、生成後のパスのみをstdoutに出力するため、次のようにエディタで開ける。
+
+```sh
+nvim "$(./name)"
 ```
 
 frontmatterスキーマ(`src/content.config.ts`): `title`, `date`, `published`(必須) / `latest_edit_at`, `description`, `tags`(任意)。

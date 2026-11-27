@@ -3,8 +3,6 @@
 import { existsSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import prompts from "prompts";
-import { generateSlugFromGemini, normalizeSlug } from "./generate_slug.ts";
 
 // Resolve paths from this script instead of the caller's working directory.
 // `./new` is also exposed at the monorepo root, so cwd may be either the
@@ -18,100 +16,49 @@ if (!has_project_manifest) {
   process.exit(1);
 }
 
-const resp = await prompts([
-  {
-    type: "text",
-    name: "title",
-    message: "input a new article title",
-  },
-  {
-    type: "text",
-    name: "slug",
-    message: "slug (leave empty to generate with Gemini)",
-  },
-  {
-    type: "text",
-    name: "desc",
-    message: "description of new article",
-  },
-  {
-    type: "text",
-    name: "tags",
-    message: "enter the values separated by ` ` or `,`.",
-  },
-  {
-    type: "confirm",
-    name: "is_public",
-    message: "is public?",
-    initial: true,
-  },
-]);
-
-if (!resp.title) {
-  console.error("canceled");
-  process.exit(1);
-}
-
-const print_title = (resp.title ?? "").trim();
+const content_root = path.join(project_root, "src/content");
 
 const fail = (message: string): never => {
   console.error(message);
   process.exit(1);
 };
 
-const input_slug = String(resp.slug ?? "").trim();
-const slug = input_slug
-  ? normalizeSlug(input_slug)
-  : await generateSlugFromGemini({
-      title: print_title,
-      description: String(resp.desc ?? "").trim(),
-    });
-
-if (!slug) {
-  fail("failed to generate slug.");
-}
-
 const now = new Date();
-const formatted = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(
-  now.getDate(),
-).padStart(2, "0")}`;
+const pad = (value: number) => String(value).padStart(2, "0");
+const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+const base_stamp = `${date}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
-const tags = String(resp.tags ?? "")
-  .split(/[ ,]+/)
-  .map((s) => s.trim())
-  .filter(Boolean);
-
-const input_meta_data = {
-  title: print_title,
-  date: formatted,
-  description: resp.desc ?? "",
-  tags: tags,
-  published: resp.is_public,
-};
+// Avoid collisions within the same second. The suffix stays URL-safe.
+let suffix = 1;
+let stamp = base_stamp;
+while (
+  existsSync(path.join(content_root, `${stamp}.md`)) ||
+  existsSync(path.join(content_root, stamp))
+) {
+  suffix += 1;
+  stamp = `${base_stamp}_${suffix}`;
+}
 
 const frontmatter = [
   "---",
-  `title: "${input_meta_data.title}"`,
-  `date: ${input_meta_data.date}`,
-  `description: "${input_meta_data.description}"`,
-  `tags: [${input_meta_data.tags.map((t) => `"${t}"`).join(", ")}]`,
-  `published: ${input_meta_data.published}`,
+  'title: ""',
+  `date: ${date}`,
+  'description: ""',
+  "tags: []",
+  "published: false",
   "---",
   "",
 ].join("\n");
 
-const article_path = path.join(project_root, "src/content", slug, `${slug}.md`);
+const article_path = path.join(content_root, `${stamp}.md`);
 const display_path = path.relative(process.cwd(), article_path);
-if (existsSync(article_path)) {
-  console.error("already exists article, please rename.");
-  process.exit(1);
-}
 
 try {
-  await mkdir(path.dirname(article_path), { recursive: true });
+  await mkdir(content_root, { recursive: true });
   await writeFile(article_path, frontmatter);
 } catch (e) {
   fail(`failed write: ${e instanceof Error ? e.message : String(e)}`);
 }
 
-console.log(`created at ${display_path}`);
+console.error(`created at ${display_path}`);
+console.log(display_path);
