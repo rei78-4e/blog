@@ -23,3 +23,4 @@ published: true
 - https://x.com/rei78_4e/status/2124156508623745115
 - [To be, or not to be — 1998/4/16](https://www.l.u-tokyo.ac.jp/~takegawa/columns/col19980416.html)
 - https://x.com/Sapphire_Lilith/status/2126069907372831068
+- https://x.com/Zaslon/status/1837454086217568329
